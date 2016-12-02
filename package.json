@@ -1,0 +1,29 @@
+{
+  "name": "mythicrun",
+  "version": "1.0.0",
+  "description": "wow mythic dungeon leaderboards",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/travhimself/mythicrun.git"
+  },
+  "author": "travhimself",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/travhimself/mythicrun/issues"
+  },
+  "homepage": "https://github.com/travhimself/mythicrun#readme",
+  "dependencies": {
+    "cheerio": "^0.22.0",
+    "express": "^4.14.0",
+    "gulp": "^3.9.1",
+    "gulp-less": "^3.3.0",
+    "gulp-watch": "^4.3.11",
+    "mongodb": "^2.2.11",
+    "mongoose": "^4.7.0",
+    "request": "^2.79.0"
+  }
+}

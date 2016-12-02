@@ -1,0 +1,1445 @@
+
+    [
+        {
+            name: "Aerie Peak",
+            slug: 'aerie-peak',
+            region: ""
+        }
+    ],
+    [
+        {
+            name: "Aman'Thul",
+            slug: "amanthul",
+            region: ""
+        }
+    ],
+    [
+        {
+            name: "Area 52",
+            slug: "area-52",
+            region: ""
+        }
+    ],
+    [
+        {
+            name: "Arthas",
+            slug: "arthas",
+            region: ""
+        }
+    ],
+    [
+        {
+            name: "Baelgun",
+            slug: "baelgun",
+            region: ""
+        }
+    ],
+    [
+        {
+            name: "Barthilas",
+            slug: "barthilas",
+            region: ""
+        }
+    ],
+    [
+        {
+            name: "Blackrock",
+            slug: "blackrock",
+            region: ""
+        }
+    ],
+    [
+        {
+            name: "Bleeding Hollow",
+            slug: "bleeding-hollow",
+            region: ""
+        }
+    ],
+    [
+        {
+            name: "Burning Legion",
+            slug: "burning-legion",
+            region: ""
+        }
+    ],
+    [
+        {
+            name: "Cenarius",
+            slug: "cenarius",
+            region: ""
+        }
+    ],
+    [
+        {
+            name: "Dalaran",
+            slug: "dalaran",
+            region: ""
+        }
+    ],
+    [
+        {
+            name: "Darkspear",
+            slug: "darkspear",
+            region: ""
+        }
+    ],
+    [
+        {
+            name: "Earthen Ring",
+            slug: "earthen-ring",
+            region: ""
+        }
+    ],
+    [
+        {
+            name: "Emerald Dream",
+            slug: "emerald-dream",
+            region: ""
+        }
+    ],
+    [
+        {
+            name: "Frostmourne",
+            slug: "frostmourne",
+            region: ""
+        }
+    ],
+    [
+        {
+            name: "Garona",
+            slug: "garona",
+            region: ""
+        }
+    ],
+    [
+        {
+            name: "Garrosh",
+            slug: "garrosh",
+            region: ""
+        }
+    ],
+    [
+        {
+            name: "Hyjal",
+            slug: "hyjal",
+            region: ""
+        }
+    ],
+    [
+        {
+            name: "Illidan",
+            slug: "illidan",
+            region: ""
+        }
+    ],
+    [
+        {
+            name: "Kel'Thuzad",
+            slug: "kelthuzad",
+            region: ""
+        }
+    ],
+    [
+        {
+            name: "Kil'jaeden",
+            slug: "kiljaeden",
+            region: ""
+        }
+    ],
+    [
+        {
+            name: "Korgath",
+            slug: "korgath",
+            region: ""
+        }
+    ],
+    [
+        {
+            name: "Lightbringer",
+            slug: "lightbringer",
+            region: ""
+        }
+    ],
+    [
+        {
+            name: "Mal'Ganis",
+            slug: "malganis",
+            region: ""
+        }
+    ],
+    [
+        {
+            name: "Moon Guard",
+            slug: "moon-guard",
+            region: ""
+        }
+    ],
+    [
+        {
+            name: "Proudmoore",
+            slug: "proudmoore",
+            region: ""
+        }
+    ],
+    [
+        {
+            name: "Ravenholdt",
+            slug: "ravenholdt",
+            region: ""
+        }
+    ],
+    [
+        {
+            name: "Sargeras",
+            slug: "sargeras",
+            region: ""
+        }
+    ],
+    [
+        {
+            name: "Saurfang",
+            slug: "saurfang",
+            region: ""
+        }
+    ],
+    [
+        {
+            name: "Shattered Hand",
+            slug: "shattered-hand",
+            region: ""
+        }
+    ],
+    [
+        {
+            name: "Stormrage",
+            slug: "stormrage",
+            region: ""
+        }
+    ],
+    [
+        {
+            name: "Stormreaver",
+            slug: "stormreaver",
+            region: ""
+        }
+    ],
+    [
+        {
+            name: "Thrall",
+            slug: "thrall",
+            region: ""
+        }
+    ],
+    [
+        {
+            name: "Tichondrius",
+            slug: "tichondrius",
+            region: ""
+        }
+    ],
+    [
+        {
+            name: "Turalyon",
+            slug: "turalyon",
+            region: ""
+        }
+    ],
+    [
+        {
+            name: "Wyrmrest Accord",
+            slug: "wyrmrest-accord",
+            region: ""
+        }
+    ],
+    [
+        {
+            name: "Zul'jin",
+            slug: "zuljin",
+            region: ""
+        }
+    ],
+    [
+        {
+            name: "Aegwynn",
+            slug: "aegwynn",
+            region: ""
+        },
+        {
+            name: "Bonechewer",
+            slug: "bonechewer",
+            region: ""
+        },
+        {
+            name: "Daggerspine",
+            slug: "daggerspine",
+            region: ""
+        },
+        {
+            name: "Gurubashi",
+            slug: "gurubashi",
+            region: ""
+        },
+        {
+            name: "Hakkar",
+            slug: "hakkar",
+            region: ""
+        }
+    ],
+    [
+        {
+            name: "Agamaggan",
+            slug: "agamaggan",
+            region: ""
+        },
+        {
+            name: "Archimonde",
+            slug: "archimonde",
+            region: ""
+        },
+        {
+            name: "Jaedenar",
+            slug: "jaedenar",
+            region: ""
+        },
+        {
+            name: "The Underbog",
+            slug: "the-underbog",
+            region: ""
+        }
+    ],
+    [
+        {
+            name: "Aggramar",
+            slug: "aggramar",
+            region: ""
+        },
+        {
+            name: "Fizzcrank",
+            slug: "fizzcrank",
+            region: ""
+        }
+    ],
+    [
+        {
+            name: "Akama",
+            slug: "akama",
+            region: ""
+        },
+        {
+            name: "Dragonmaw",
+            slug: "dragonmaw",
+            region: ""
+        },
+        {
+            name: "Mug'thol",
+            slug: "mugthold",
+            region: ""
+        }
+    ],
+    [
+        {
+            name: "Alleria",
+            slug: "alleria",
+            region: ""
+        },
+        {
+            name: "Khadgar",
+            slug: "khadgar",
+            region: ""
+        }
+    ],
+    [
+        {
+            name: "Alexstrasza",
+            slug: "alexstrasza",
+            region: ""
+        },
+        {
+            name: "Terokkar",
+            slug: "terokkar",
+            region: ""
+        }
+    ],
+    [
+        {
+            name: "Altar of Storms",
+            slug: "altar-of-storms",
+            region: ""
+        },
+        {
+            name: "Anetheron",
+            slug: "anetheron",
+            region: ""
+        },
+        {
+            name: "Magtheridon",
+            slug: "magtheridon",
+            region: ""
+        },
+        {
+            name: "Ysondre",
+            slug: "ysondre",
+            region: ""
+        }
+    ],
+    [
+        {
+            name: "Alterac Mountains",
+            slug: "alterac-mountains",
+            region: ""
+        },
+        {
+            name: "Balnazzar",
+            slug: "balnazzar",
+            region: ""
+        },
+        {
+            name: "Gorgonnash",
+            slug: "gorgonnash",
+            region: ""
+        },
+        {
+            name: "The Forgotten Coast",
+            slug: "the-forgotten-coast",
+            region: ""
+        },
+        {
+            name: "Warsong",
+            slug: "warsong",
+            region: ""
+        }
+    ],
+    [
+        {
+            name: "Andorhal",
+            slug: "andorhal",
+            region: ""
+        },
+        {
+            name: "Scilla",
+            slug: "scilla",
+            region: ""
+        },
+        {
+            name: "Ursin",
+            slug: "ursin",
+            region: ""
+        },
+        {
+            name: "Zuluhed",
+            slug: "zuluhed",
+            region: ""
+        }
+    ],
+    [
+        {
+            name: "Antonidas",
+            slug: "antonidas",
+            region: ""
+        },
+        {
+            name: "Uldum",
+            slug: "uldum",
+            region: ""
+        }
+    ],
+    [
+        {
+            name: "Anub’arak",
+            slug: "anubarak",
+            region: ""
+        },
+        {
+            name: "Chromaggus",
+            slug: "chromaggus",
+            region: ""
+        },
+        {
+            name: "Crushridge",
+            slug: "crushridge",
+            region: ""
+        },
+        {
+            name: "Garithos",
+            slug: "garithos",
+            region: ""
+        },
+        {
+            name: "Nathrezim",
+            slug: "nathrezim",
+            region: ""
+        },
+        {
+            name: "Smolderthorn",
+            slug: "smolderthorn",
+            region: ""
+        }
+    ],
+    [
+        {
+            name: "Anvilmar",
+            slug: "anvilmar",
+            region: ""
+        },
+        {
+            name: "Undermine",
+            slug: "undermine",
+            region: ""
+        }
+    ],
+    [
+        {
+            name: "Arathor",
+            slug: "arathor",
+            region: ""
+        },
+        {
+            name: "Drenden",
+            slug: "drenden",
+            region: ""
+        }
+    ],
+    [
+        {
+            name: "Argent Dawn",
+            slug: "arent-dawn",
+            region: ""
+        },
+        {
+            name: "The Scryers",
+            slug: "the-scryers",
+            region: ""
+        }
+    ],
+    [
+        {
+            name: "Arygos",
+            slug: "arygos",
+            region: ""
+        },
+        {
+            name: "Llane",
+            slug: "llane",
+            region: ""
+        }
+    ],
+    [
+        {
+            name: "Auchindoun",
+            slug: "auchindoun",
+            region: ""
+        },
+        {
+            name: "Cho'gall",
+            slug: "chogall",
+            region: ""
+        },
+        {
+            name: "Laughing Skull",
+            slug: "laughing-skull",
+            region: ""
+        }
+    ],
+    [
+        {
+            name: "Azgalor",
+            slug: "azgalor",
+            region: ""
+        },
+        {
+            name: "Azshara",
+            slug: "azshara",
+            region: ""
+        },
+        {
+            name: "Destromath",
+            slug: "destromath",
+            region: ""
+        },
+        {
+            name: "Thunderlord",
+            slug: "thunderlord",
+            region: ""
+        }
+    ],
+    [
+        {
+            name: "Azjol-Nerub",
+            slug: "azjolnerub",
+            region: ""
+        },
+        {
+            name: "Khaz Modan",
+            slug: "khaz-modan",
+            region: ""
+        }
+    ],
+    [
+        {
+            name: "Azuremyst",
+            slug: "azuremyst",
+            region: ""
+        },
+        {
+            name: "Staghelm",
+            slug: "staghelm",
+            region: ""
+        }
+    ],
+    [
+        {
+            name: "Baelgun",
+            slug: "baelgun",
+            region: ""
+        },
+        {
+            name: "Doomhammer",
+            slug: "doomhammer",
+            region: ""
+        }
+    ],
+    [
+        {
+            name: "Black Dragonflight",
+            slug: "black-dragonflight",
+            region: ""
+        },
+        {
+            name: "Gul'dan",
+            slug: "guldan",
+            region: ""
+        },
+        {
+            name: "Skullcrusher",
+            slug: "skullcrusher",
+            region: ""
+        }
+    ],
+    [
+        {
+            name: "Blackhand",
+            slug: "blackhand",
+            region: ""
+        },
+        {
+            name: "Galakrond",
+            slug: "galakrond",
+            region: ""
+        }
+    ],
+    [
+        {
+            name: "Blackwater Raiders",
+            slug: "blackwater-raiders",
+            region: ""
+        },
+        {
+            name: "Shadow Council",
+            slug: "shadow-council",
+            region: ""
+        }
+    ],
+    [
+        {
+            name: "Blackwing Lair",
+            slug: "blackwing-lair",
+            region: ""
+        },
+        {
+            name: "Dethecus",
+            slug: "dethecus",
+            region: ""
+        },
+        {
+            name: "Detheroc",
+            slug: "detheroc",
+            region: ""
+        },
+        {
+            name: "Haomarush",
+            slug: "haomarush",
+            region: ""
+        },
+        {
+            name: "Lethon",
+            slug: "lethon",
+            region: ""
+        },
+        {
+            name: "Shadowmoon",
+            slug: "shadowmoon",
+            region: ""
+        }
+    ],
+    [
+        {
+            name: "Bladefist",
+            slug: "bladefist",
+            region: ""
+        },
+        {
+            name: "Kul Tiras",
+            slug: "kul-tiras",
+            region: ""
+        }
+    ],
+    [
+        {
+            name: "Blade's Edge",
+            slug: "blades-edge",
+            region: ""
+        },
+        {
+            name: "Thunderhorn",
+            slug: "thunderhorn",
+            region: ""
+        }
+    ],
+    [
+        {
+            name: "Blood Furnace",
+            slug: "blood-furnace",
+            region: ""
+        },
+        {
+            name: "Mannoroth",
+            slug: "mannoroth",
+            region: ""
+        },
+        {
+            name: "Nazjatar",
+            slug: "nazjatar",
+            region: ""
+        }
+    ],
+    [
+        {
+            name: "Bloodhoof",
+            slug: "bloodhoof",
+            region: ""
+        },
+        {
+            name: "Duskwood",
+            slug: "duskwood",
+            region: ""
+        }
+    ],
+    [
+        {
+            name: "Bloodscalp",
+            slug: "bloodscalp",
+            region: ""
+        },
+        {
+            name: "Boulderfist",
+            slug: "boulderfist",
+            region: ""
+        },
+        {
+            name: "Dunemaul",
+            slug: "dunemaul",
+            region: ""
+        },
+        {
+            name: "Maiev",
+            slug: "maiev",
+            region: ""
+        },
+        {
+            name: "Stonemaul",
+            slug: "stonemaul",
+            region: ""
+        }
+    ],
+    [
+        {
+            name: "Borean Tundra",
+            slug: "borean-tundra",
+            region: ""
+        },
+        {
+            name: "Shadowsong",
+            slug: "shadowsong",
+            region: ""
+        }
+    ],
+    [
+        {
+            name: "Bronzebeard",
+            slug: "bronzebeard",
+            region: ""
+        },
+        {
+            name: "Shandris",
+            slug: "shandris",
+            region: ""
+        }
+    ],
+    [
+        {
+            name: "Burning Blade",
+            slug: "burning-blade",
+            region: ""
+        },
+        {
+            name: "Lightning's Blade",
+            slug: "lightnings-blade",
+            region: ""
+        },
+        {
+            name: "Onyxia",
+            slug: "onyxia",
+            region: ""
+        }
+    ],
+    [
+        {
+            name: "Caelestrasz",
+            slug: "caelestrasz",
+            region: ""
+        },
+        {
+            name: "Nagrand",
+            slug: "nagrand",
+            region: ""
+        }
+    ],
+    [
+        {
+            name: "Cairne",
+            slug: "cairne",
+            region: ""
+        },
+        {
+            name: "Perenolde",
+            slug: "perenolde",
+            region: ""
+        }
+    ],
+    [
+        {
+            name: "Cenarion Circle",
+            slug: "cenarion-circle",
+            region: ""
+        },
+        {
+            name: "Sisters of Elune",
+            slug: "sisters-of-elune",
+            region: ""
+        }
+    ],
+    [
+        {
+            name: "Coilfang",
+            slug: "coilfang",
+            region: ""
+        },
+        {
+            name: "Dark Iron",
+            slug: "dark-iron",
+            region: ""
+        },
+        {
+            name: "Dalvengyr",
+            slug: "dalvengyr",
+            region: ""
+        },
+        {
+            name: "Demon Soul",
+            slug: "demon-soul",
+            region: ""
+        }
+    ],
+    [
+        {
+            name: "Dawnbringer",
+            slug: "dawnbringer",
+            region: ""
+        },
+        {
+            name: "Madoran",
+            slug: "madoran",
+            region: ""
+        }
+    ],
+    [
+        {
+            name: "Darrowmere",
+            slug: "darrowmere",
+            region: ""
+        },
+        {
+            name: "Windrunner",
+            slug: "windrunner",
+            region: ""
+        }
+    ],
+    [
+        {
+            name: "Dath'Remar",
+            slug: "dathremar",
+            region: ""
+        },
+        {
+            name: "Khaz'goroth",
+            slug: "khazgoroth",
+            region: ""
+        }
+    ],
+    [
+        {
+            name: "Deathwing",
+            slug: "deathwing",
+            region: ""
+        },
+        {
+            name: "Executus",
+            slug: "executus",
+            region: ""
+        },
+        {
+            name: "Kalecgos",
+            slug: "kalecgos",
+            region: ""
+        },
+        {
+            name: "Shattered Halls",
+            slug: "shattered-halls",
+            region: ""
+        }
+    ],
+    [
+        {
+            name: "Dentarg",
+            slug: "dentart",
+            region: ""
+        },
+        {
+            name: "Whisperwind",
+            slug: "whisperwind",
+            region: ""
+        }
+    ],
+    [
+        {
+            name: "Detheroc",
+            slug: "detheroc",
+            region: ""
+        },
+        {
+            name: "Shadowmoon",
+            slug: "shadowmoon",
+            region: ""
+        }
+    ],
+    [
+        {
+            name: "Draenor",
+            slug: "draenor",
+            region: ""
+        },
+        {
+            name: "Echo Isles",
+            slug: "echo-isles",
+            region: ""
+        }
+    ],
+    [
+        {
+            name: "Dragonblight",
+            slug: "dragonblight",
+            region: ""
+        },
+        {
+            name: "Fenris",
+            slug: "fenris",
+            region: ""
+        }
+    ],
+    [
+        {
+            name: "Draka",
+            slug: "draka",
+            region: ""
+        },
+        {
+            name: "Suramar",
+            slug: "suramar",
+            region: ""
+        }
+    ],
+    [
+        {
+            name: "Drak’Tharon",
+            slug: "draktharon",
+            region: ""
+        },
+        {
+            name: "Firetree",
+            slug: "firetree",
+            region: ""
+        },
+        {
+            name: "Malorne",
+            slug: "malorne",
+            region: ""
+        },
+        {
+            name: "Rivendare",
+            slug: "rivendare",
+            region: ""
+        },
+        {
+            name: "Spirestone",
+            slug: "spirestone",
+            region: ""
+        },
+        {
+            name: "Stormscale",
+            slug: "stormscale",
+            region: ""
+        }
+    ],
+    [
+        {
+            name: "Drak'thul",
+            slug: "drakthul",
+            region: ""
+        },
+        {
+            name: "Skywall",
+            slug: "skywall",
+            region: ""
+        }
+    ],
+    [
+        {
+            name: "Dreadmaul",
+            slug: "dreadmaul",
+            region: ""
+        },
+        {
+            name: "Thaurissan",
+            slug: "thaurissan",
+            region: ""
+        }
+    ],
+    [
+        {
+            name: "Durotan",
+            slug: "durotan",
+            region: ""
+        },
+        {
+            name: "Ysera",
+            slug: "ysera",
+            region: ""
+        }
+    ],
+    [
+        {
+            name: "Eitrigg",
+            slug: "eitrigg",
+            region: ""
+        },
+        {
+            name: "Shu'halo",
+            slug: "shuhalo",
+            region: ""
+        }
+    ],
+    [
+        {
+            name: "Eldre’Thalas",
+            slug: "eldrethalas",
+            region: ""
+        },
+        {
+            name: "Korialstrasz",
+            slug: "korialstrasz",
+            region: ""
+        }
+    ],
+    [
+        {
+            name: "Elune",
+            slug: "elune",
+            region: ""
+        },
+        {
+            name: "Gilneas",
+            slug: "gilneas",
+            region: ""
+        }
+    ],
+    [
+        {
+            name: "Eonar",
+            slug: "eonar",
+            region: ""
+        },
+        {
+            name: "Velen",
+            slug: "velen",
+            region: ""
+        }
+    ],
+    [
+        {
+            name: "Eredar",
+            slug: "eredar",
+            region: ""
+        },
+        {
+            name: "Gorefiend",
+            slug: "gorefiend",
+            region: ""
+        },
+        {
+            name: "Spinebreaker",
+            slug: "spinebreaker",
+            region: ""
+        },
+        {
+            name: "Wildhammer",
+            slug: "wildhammer",
+            region: ""
+        }
+    ],
+    [
+        {
+            name: "Exodar",
+            slug: "exodar",
+            region: ""
+        },
+        {
+            name: "Medivh",
+            slug: "medivh",
+            region: ""
+        }
+    ],
+    [
+        {
+            name: "Farstriders",
+            slug: "farstriders",
+            region: ""
+        },
+        {
+            name: "Silver Hand",
+            slug: "silver-hand",
+            region: ""
+        },
+        {
+            name: "Thorium Brotherhood",
+            slug: "thorium-brotherhood",
+            region: ""
+        }
+    ],
+    [
+        {
+            name: "Feathermoon",
+            slug: "feathermoon",
+            region: ""
+        },
+        {
+            name: "Scarlet Crusade",
+            slug: "scarlet-crusade",
+            region: ""
+        }
+    ],
+    [
+        {
+            name: "Frostmane",
+            slug: "frostmane",
+            region: ""
+        },
+        {
+            name: "Ner'zhul",
+            slug: "nerzhul",
+            region: ""
+        },
+        {
+            name: "Tortheldrin",
+            slug: "tortheldrin",
+            region: ""
+        }
+    ],
+    [
+        {
+            name: "Frostwolf",
+            slug: "frostwolf",
+            region: ""
+        },
+        {
+            name: "Vashj",
+            slug: "vashj",
+            region: ""
+        }
+    ],
+    [
+        {
+            name: "Ghostlands",
+            slug: "ghostlands",
+            region: ""
+        },
+        {
+            name: "Kael'thas",
+            slug: "kaelthas",
+            region: ""
+        }
+    ],
+    [
+        {
+            name: "Gnomeregan",
+            slug: "gnomeregan",
+            region: ""
+        },
+        {
+            name: "Moonrunner",
+            slug: "moonrunner",
+            region: ""
+        }
+    ],
+    [
+        {
+            name: "Greymane",
+            slug: "greymane",
+            region: ""
+        },
+        {
+            name: "Tanaris",
+            slug: "tanaris",
+            region: ""
+        }
+    ],
+    [
+        {
+            name: "Grizzly Hills",
+            slug: "grizzly-hills",
+            region: ""
+        },
+        {
+            name: "Lothar",
+            slug: "lothar",
+            region: ""
+        }
+    ],
+    [
+        {
+            name: "Gundrak",
+            slug: "gundrak",
+            region: ""
+        },
+        {
+            name: "Jubei'Thos",
+            slug: "jubeithose",
+            region: ""
+        }
+    ],
+    [
+        {
+            name: "Hellscream",
+            slug: "hellscream",
+            region: ""
+        },
+        {
+            name: "Zangarmarsh",
+            slug: "zangarmarsh",
+            region: ""
+        }
+    ],
+    [
+        {
+            name: "Hydraxis",
+            slug: "hydraxis",
+            region: ""
+        },
+        {
+            name: "Terenas",
+            slug: "terenas",
+            region: ""
+        }
+    ],
+    [
+        {
+            name: "Icecrown",
+            slug: "icecrown",
+            region: ""
+        },
+        {
+            name: "Malygos",
+            slug: "malygos",
+            region: ""
+        }
+    ],
+    [
+        {
+            name: "Kargath",
+            slug: "kargath",
+            region: ""
+        },
+        {
+            name: "Norgannon",
+            slug: "norgannon",
+            region: ""
+        }
+    ],
+    [
+        {
+            name: "Kilrogg",
+            slug: "kilrogg",
+            region: ""
+        },
+        {
+            name: "Winterhoof",
+            slug: "winterhoof",
+            region: ""
+        }
+    ],
+    [
+        {
+            name: "Kirin Tor",
+            slug: "kirin-tor",
+            region: ""
+        },
+        {
+            name: "Sentinels",
+            slug: "sentinels",
+            region: ""
+        },
+        {
+            name: "Steamwheedle Cartel",
+            slug: "steamwheedle-cartel",
+            region: ""
+        }
+    ],
+    [
+        {
+            name: "Lightninghoof",
+            slug: "lightninghoof",
+            region: ""
+        },
+        {
+            name: "Maelstrom",
+            slug: "maelstrom",
+            region: ""
+        },
+        {
+            name: "The Venture Co",
+            slug: "the-venture-co",
+            region: ""
+        }
+    ],
+    [
+        {
+            name: "Malfurion",
+            slug: "malfurion",
+            region: ""
+        },
+        {
+            name: "Trollbane",
+            slug: "trollbane",
+            region: ""
+        }
+    ],
+    [
+        {
+            name: "Misha",
+            slug: "misha",
+            region: ""
+        },
+        {
+            name: "Rexxar",
+            slug: "rexxar",
+            region: ""
+        }
+    ],
+    [
+        {
+            name: "Mok'Nathal",
+            slug: "moknathal",
+            region: ""
+        },
+        {
+            name: "Silvermoon",
+            slug: "silvermoon",
+            region: ""
+        }
+    ],
+    [
+        {
+            name: "Muradin",
+            slug: "muradin",
+            region: ""
+        },
+        {
+            name: "Nordrassil",
+            slug: "nordrassil",
+            region: ""
+        }
+    ],
+    [
+        {
+            name: "Nazgrel",
+            slug: "nazgrel",
+            region: ""
+        },
+        {
+            name: "Nesingwary",
+            slug: "nesingwary",
+            region: ""
+        },
+        {
+            name: "Vek'nilash",
+            slug: "veknilash",
+            region: ""
+        }
+    ],
+    [
+        {
+            name: "Quel'dorei",
+            slug: "queldorei",
+            region: ""
+        },
+        {
+            name: "Sen'jin",
+            slug: "senjin",
+            region: ""
+        }
+    ],
+    [
+        {
+            name: "Ravencrest",
+            slug: "ravencrest",
+            region: ""
+        },
+        {
+            name: "Uldaman",
+            slug: "uldaman",
+            region: ""
+        }
+    ],
+    [
+        {
+            name: "Ravenholdt",
+            slug: "ravenholdt",
+            region: ""
+        },
+        {
+            name: "Twisting Nether",
+            slug: "twisting-nether",
+            region: ""
+        }
+    ],
+    [
+        {
+            name: "Runetotem",
+            slug: "runetotem",
+            region: ""
+        },
+        {
+            name: "Uther",
+            slug: "uther",
+            region: ""
+        }
+    ]
