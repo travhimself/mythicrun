@@ -7,7 +7,7 @@ angular.module('mythicrunapp', []).controller('mythicruncontroller', ['$scope', 
     // import data
     $http.get('/js/data.json').
         success( function (data) {
-            window.server = data.servers;
+            window.servers = data.servers;
             window.dungeons = data.dungeons;
 
             $scope.servers = data.servers;
@@ -22,12 +22,14 @@ angular.module('mythicrunapp', []).controller('mythicruncontroller', ['$scope', 
     // fetch data based on user selections
     $scope.inputformdata = {
         dungeon: 'all',
-        server: 'all'
+        server: 'all',
+        limit: '25',
+        week: 'current'
     };
 
     $scope.$watch("inputformdata", function(){
 
-        $http.get('/run/' + $scope.inputformdata.dungeon + '/' + $scope.inputformdata.server).
+        $http.get('/run/' + $scope.inputformdata.dungeon + '/' + $scope.inputformdata.server + '/' + $scope.inputformdata.limit).
             success( function (data, status, headers, config) {
                 $scope.runs = data;
             }).
@@ -50,20 +52,28 @@ angular.module('mythicrunapp', []).controller('mythicruncontroller', ['$scope', 
     };
 }])
 
-.filter('friendlytime', ['$filter', function($filter) {
+.filter('servername', ['$filter', function($filter) {
+
+    // return the human readable name from a server slug
+    return function(input) {
+
+        var server = $filter('filter')(window.servers, {slug: input}, true);
+        return server[0].name;
+
+    };
+}])
+
+.filter('friendlytime', ['$sce', function($sce) {
 
     // return the time in min:sec from milliseconds
     return function(input) {
 
-        var duration = moment.duration(input);
-        var minutes = duration.minutes();
-        var seconds = duration.seconds();
+        var duration = moment.utc(input).format('HH:mm:ss.SSS');
+        var durtationchunks = duration.split('.');
 
-        if ( seconds < 10 ) {
-            seconds = '0' + seconds;
-        }
+        var timestring = durtationchunks[0] + '<span>.' + durtationchunks[1] + '</span>';
 
-        return minutes + ':' + seconds;
+        return $sce.trustAsHtml(timestring);
 
     };
 }])

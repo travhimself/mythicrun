@@ -1,13 +1,16 @@
 // settings
+// tune interval and grace period to preference, and to avoid potential throttling or IP bans
+// with current settings, the scrape routine will run every 4 hours, and each loop will take ~3 hours
 var s = {
     nodeport: 4001,
     routeoptions: {
         root: __dirname + '/static/views/',
         dotfiles: 'ignore'
     },
-    scrapeinterval: 14400000, // time between data grabs, 4 hours
-    scrapegraceperiod: 3000, // time between each scrape in a data grab, 3 seconds
-    baseurl: 'https://worldofwarcraft.com/en-us/game/pve/leaderboards/'
+    scrapeinterval: 14400000,
+    scrapegraceperiod: 5000,
+    baseurlna: 'https://worldofwarcraft.com/en-us/game/pve/leaderboards/',
+    baseurleu: 'https://worldofwarcraft.com/en-gb/game/pve/leaderboards/'
 };
 
 
@@ -35,7 +38,7 @@ db.once('open', function() {
 });
 
 var run = mongoose.model('run', {
-    server: String,
+    url: String,
     region: String,
     dungeon: String,
     affix1: String,
@@ -47,14 +50,19 @@ var run = mongoose.model('run', {
     faction: String,
     tankname: String,
     tankclass: String,
+    tankarmorylink: String,
     healername: String,
     healerclass: String,
+    healerarmorylink: String,
     dps1name: String,
     dps1class: String,
+    dps1armorylink: String,
     dps2name: String,
     dps2class: String,
+    dps2armorylink: String,
     dps3name: String,
-    dps3class: String
+    dps3class: String,
+    dps3armorylink: String
 });
 
 
@@ -74,12 +82,13 @@ var nodeserver = expressapp.listen(s.nodeport, function() {
 
         for (var z = 0, zlen = data.dungeons.length; z < zlen; z++ ) {
             var currentserver = data.servers[x].slug;
-            var currentserverregion = data.servers[x].region;
             var currentdungeon = data.dungeons[z].slug;
-            var url = s.baseurl + currentserver + '/' + currentdungeon;
 
-            var entry = [url, currentserver, currentserverregion, currentdungeon];
-            combinations.push(entry);
+            var urlna = s.baseurlna + currentserver + '/' + currentdungeon;
+            combinations.push([urlna, 'na', currentdungeon]);
+
+            var urleu = s.baseurleu + currentserver + '/' + currentdungeon;
+            combinations.push([urleu, 'eu', currentdungeon]);
         }
     }
 
@@ -96,18 +105,19 @@ var nodeserver = expressapp.listen(s.nodeport, function() {
 
                 request(item[0], function(error, response, html) {
 
+                    console.log('scraping: ' + item[0]);
+
                     if ( !error && response.statusCode == 200 ) {
 
                         // scrape page
                         var $ = cheerio.load(html);
-
                         var $dungeonresults = $('.Pane-content .SortTable-body .SortTable-row');
 
                         $dungeonresults.each( function(i) {
 
                             var mlevelint = parseInt( $(this).find('> div:nth-child(2)').text() );
                             var timestring = $(this).find('> div:nth-child(3)').attr('data-value');
-                            var completedstring = $(this).find('> div:nth-child(5)').text();
+                            var completedstring = $(this).find('> div:nth-child(5)').attr('data-value');
 
                             var $affixes = $('.Box--leather > div > .List > .List-item:nth-child(2) > .List > .List-item:nth-child(2) > .List > .List-item');
                             var affix1string = $affixes.find('.List-item:nth-child(1) .List-item').text();
@@ -121,36 +131,41 @@ var nodeserver = expressapp.listen(s.nodeport, function() {
                             if ($tank.length > 0) {
                                 var tanknamestring = $tank.text();
                                 var tankclassstring = getcharclass($tank);
+                                var tankarmorylinkstring = $tank.attr('href');
                             }
 
                             var $healer = $party.find('.List-item:nth-child(2) a');
                             if ($healer.length > 0) {
                                 var healernamestring = $healer.text();
                                 var healerclassstring = getcharclass($healer);
+                                var healerarmorylinkstring = $tank.attr('href');
                             }
 
                             var $dps1 = $party.find('.List-item:nth-child(3) a');
                             if ($dps1.length > 0) {
                                 var dps1namestring = $dps1.text();
                                 var dps1classstring = getcharclass($dps1);
+                                var dps1armorylinkstring = $tank.attr('href');
                             }
 
                             var $dps2 = $party.find('.List-item:nth-child(4) a');
                             if ($dps2.length > 0) {
                                 var dps2namestring = $dps2.text();
                                 var dps2classstring = getcharclass($dps2);
+                                var dps2armorylinkstring = $tank.attr('href');
                             }
 
                             var $dps3 = $party.find('.List-item:nth-child(5) a');
                             if ($dps3.length > 0) {
                                 var dps3namestring = $dps3.text();
                                 var dps3classstring = getcharclass($dps3);
+                                var dps3armorylinkstring = $tank.attr('href');
                             }
 
                             var newrun = new run({
-                                server: item[1],
-                                region: item[2],
-                                dungeon: item[3],
+                                url: item[0],
+                                region: item[1],
+                                dungeon: item[2],
                                 affix1: affix1string,
                                 affix2: affix2string,
                                 affix3: affix3string,
@@ -160,54 +175,80 @@ var nodeserver = expressapp.listen(s.nodeport, function() {
                                 faction: factionstring,
                                 tankname: tanknamestring,
                                 tankclass: tankclassstring,
+                                tankarmorylink: tankarmorylinkstring,
                                 healername: healernamestring,
                                 healerclass: healerclassstring,
+                                healerarmorylink: healerarmorylinkstring,
                                 dps1name: dps1namestring,
                                 dps1class: dps1classstring,
+                                dps1armorylink: dps1armorylinkstring,
                                 dps2name: dps2namestring,
                                 dps2class: dps2classstring,
+                                dps2armorylink: dps2armorylinkstring,
                                 dps3name: dps3namestring,
-                                dps3class: dps3classstring
+                                dps3class: dps3classstring,
+                                dps3armorylink: dps3armorylinkstring
                             });
 
-                            // console.log(newrun);
-
-                            newrun.save(function (err) {
-                                if (err) {
-                                    console.log('run not saved: ' + err);
-                                } else {
-                                    // console.log('run saved');
-                                }
-                            });
+                            checkandsave(newrun);
 
                         });
 
                         // continue iterating
-            			looper(combinations.shift());
+                        looper(combinations.shift());
 
                     } else {
-                        console.log(error);
+
+                        // if there's an error, log it and continue on
+                        console.log('error scraping page: ' + error);
+                        looper(combinations.shift());
                     }
                 });
 
         	} else {
-                console.log('page scraping complete.')
+                console.log('page scraping complete')
             }
         };
 
+        // kick off the looper
         looper(combinations.shift());
     };
 
 
     // uncomment if we want to run a scrape immediately when server starts
-    // scrapepages();
+    scrapepages();
 
 
     // scrape every x ms
-    setTimeout( function () {
+    setInterval( function () {
         // uncomment for production
-        // scrapepages();
+        scrapepages();
     }, s.scrapeinterval);
+
+
+    // check an entry against existing db docs, and save if it's new
+    var checkandsave = function(newrun) {
+
+        run.find({
+            mlevel: newrun.mlevel,
+            dungeon: newrun.dungeon,
+            time: newrun.time,
+            completed: newrun.completed,
+            tankname: newrun.tankname
+        }, function (err, runs) {
+            if ( runs.length > 0 ) {
+                // console.log('found existing entry, skipping...')
+            } else {
+                newrun.save(function (err) {
+                    if (err) {
+                        console.log('error saving run: ' + err);
+                    } else {
+                        // console.log('run saved');
+                    }
+                });
+            }
+        });
+    };
 
 
     // function to grab character class from css class
@@ -225,8 +266,9 @@ expressapp.use(express.static('static'));
 
 
 // routes
-expressapp.get('/run/:dungeon/:server', function (req, res) {
+expressapp.get('/run/:dungeon/:server/:limit', function (req, res) {
 
+    var resultslimit = parseInt(req.params.limit);
     var findobject = {};
 
     if ( req.params.dungeon != 'all' ) {
@@ -245,7 +287,7 @@ expressapp.get('/run/:dungeon/:server', function (req, res) {
         mlevel: -1,
         time: 1
     })
-    .limit(10);
+    .limit(resultslimit);
 
 });
 

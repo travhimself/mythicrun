@@ -12,6 +12,8 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+
     <link rel="stylesheet" href="/styles/normalize.css">
     <link rel="stylesheet" href="/styles/skeleton.css">
     <link rel="stylesheet" href="/styles/styles.css">
@@ -22,7 +24,7 @@
 
     <script type='text/javascript'>
         var _gaq = _gaq || [];
-        _gaq.push(['_setAccount', 'INSERTGAIDHERE']);
+        _gaq.push(['_setAccount', 'UA-1698731-10']);
         _gaq.push(['_trackPageview']);
 
         (function() {
@@ -53,28 +55,68 @@
                             <option value="all">All Servers</option>
                             <option ng-repeat="server in servers" value="{{ server.slug }}">{{ server.name }}</option>
                         </select>
+
+                        <select ng-model="inputformdata.limit">
+                            <option value="10">10 Results</option>
+                            <option value="25">25 Results</option>
+                            <option value="50">50 Results</option>
+                            <option value="100">100 Results</option>
+                        </select>
+
+                        <!-- <select ng-model="inputformdata.week">
+                            <option value="current">Current Week</option>
+                            <option value="all">All-time</option>
+                        </select> -->
                     </form>
                 </div>
 
                 <div id="results">
+
+                    <div class="entry labels">
+                        <div class="rank"></div>
+                        <div class="mlevel">M+</div>
+                        <div class="dungeon">Dungeon</div>
+                        <div class="time">Time</div>
+                        <div class="party">Party</div>
+                    </div>
+
                     <div class="entry" ng-repeat="run in runs">
-                        <div class="rank">{{$index + 1}}</div>
+                        <div class="rank">{{ $index + 1 }}</div>
                         <div class="mlevel">{{ run.mlevel }}</div>
-                        <div class="dungeon">{{ run.dungeon | dungeonname }}</div>
-                        <div class="time">{{ run.time | friendlytime }}</div>
-                        <div class="completed">{{ run.completed | date:'shortDate' }}</div>
-                        <div class="faction {{ run.faction }}"></div>
-                        <div class="party">
-                            <a href="#" class="{{ run.tankclass }}" ng-if="run.tankname != ''">{{ run.tankname }}</a>
-                            <a href="#" class="{{ run.healerclass }}" ng-if="run.healername != ''">{{ run.healername }}</a>
-                            <a href="#" class="{{ run.dps1class }}" ng-if="run.dps1name != ''">{{ run.dps1name }}</a>
-                            <a href="#" class="{{ run.dps2class }}" ng-if="run.dps2name != ''">{{ run.dps2name }}</a>
-                            <a href="#" class="{{ run.dps3class }}" ng-if="run.dps3name != ''">{{ run.dps3name }}</a>
+                        <div class="dungeon">
+                            {{ run.dungeon | dungeonname }}
+                            <div class="affixes">
+                                <div>{{ run.affix1 }}, {{ run.affix2 }}, {{ run.affix3 }}</div>
+                            </div>
                         </div>
-                        <div class="affixes">
-                            <div>{{ run.affix1 }}, {{ run.affix2 }}, {{ run.affix3 }}</div>
+                        <div class="time">
+                            <div class="speed" ng-bind-html="run.time | friendlytime"></div>
+                            <div class="completed">{{ run.completed | date:"MM/dd/yyyy 'at' h:mma" }}</div>
+                        </div>
+                        <div class="party">
+                            <span class="region">{{ run.region }}</span>
+
+                            <span class="faction {{ run.faction }}" ng-if="run.faction == 'alliance'">A</span>
+                            <span class="faction {{ run.faction }}" ng-if="run.faction == 'horde'">H</span>
+
+                            <a href="{{ run.tankarmorylink }}" ng-if="run.tankname != ''">
+                                <div class="role tank {{ run.tankclass }}"></div> <div class="name">{{ run.tankname }}</div>
+                            </a>
+                            <a href="{{ run.healerarmorylink }}" ng-if="run.healername != ''">
+                                <div class="role healer {{ run.healerclass }}"></div> <div class="name">{{ run.healername }}</div>
+                            </a>
+                            <a href="{{ run.dps1armorylink }}" ng-if="run.dps1name != ''">
+                                <div class="role dps {{ run.dps1class }}"></div> <div class="name">{{ run.dps1name }}</div>
+                            </a>
+                            <a href="{{ run.dps2armorylink }}" ng-if="run.dps2name != ''">
+                                <div class="role dps {{ run.dps2class }}"></div> <div class="name">{{ run.dps2name }}</div>
+                            </a>
+                            <a href="{{ run.dps3armorylink }}" ng-if="run.dps3name != ''">
+                                <div class="role dps {{ run.dps3class }}"></div> <div class="name">{{ run.dps3name }}</div>
+                            </a>
                         </div>
                     </div>
+
                 </div><!-- end #results -->
 
             </div>
