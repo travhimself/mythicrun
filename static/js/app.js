@@ -7,9 +7,11 @@ angular.module('mythicrunapp', []).controller('mythicruncontroller', ['$scope', 
     // import data
     $http.get('/js/data.json').
         success( function (data) {
+            window.regions = data.regions;
             window.servers = data.servers;
             window.dungeons = data.dungeons;
 
+            $scope.regions = data.regions;
             $scope.servers = data.servers;
             $scope.dungeons = data.dungeons;
         });
@@ -21,15 +23,16 @@ angular.module('mythicrunapp', []).controller('mythicruncontroller', ['$scope', 
 
     // fetch data based on user selections
     $scope.inputformdata = {
+        region: 'all',
+        // week: 'current',
         dungeon: 'all',
-        server: 'all',
-        limit: '25',
-        week: 'current'
+        faction: 'both',
+        limit: '10'
     };
 
     $scope.$watch("inputformdata", function(){
 
-        $http.get('/run/' + $scope.inputformdata.dungeon + '/' + $scope.inputformdata.server + '/' + $scope.inputformdata.limit).
+        $http.get('/run/' + $scope.inputformdata.region + '/' + $scope.inputformdata.dungeon + '/' + $scope.inputformdata.faction + '/' + $scope.inputformdata.limit).
             success( function (data, status, headers, config) {
                 $scope.runs = data;
             }).
@@ -63,6 +66,17 @@ angular.module('mythicrunapp', []).controller('mythicruncontroller', ['$scope', 
     };
 }])
 
+.filter('regionname', ['$filter', function($filter) {
+
+    // return the full region name from a region abbreviation
+    return function(input) {
+
+        var region = $filter('filter')(window.regions, {abbr: input}, true);
+        return region[0].name;
+
+    };
+}])
+
 .filter('friendlytime', ['$sce', function($sce) {
 
     // return the time in min:sec from milliseconds
@@ -76,18 +90,4 @@ angular.module('mythicrunapp', []).controller('mythicruncontroller', ['$scope', 
         return $sce.trustAsHtml(timestring);
 
     };
-}])
-
-.directive('dostuff', function() {
-
-    return {
-        restrict: 'A',
-        templateUrl: '/partials/something.html',
-        replace: true,
-        link: function(scope, element, attrs) {
-
-            // do stuff
-
-        }
-    };
-});
+}]);

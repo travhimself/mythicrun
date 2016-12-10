@@ -1,23 +1,29 @@
 body {
-    color: #444;
-    font-family: 'Poppins', monospace;
+    color: #eee;
+    font-family: 'Roboto', monospace;
     font-weight: 400;
     letter-spacing: .2px;
+    background: #333;
+    background: -webkit-linear-gradient(left, #000, #333, #000);
+    background: -moz-linear-gradient(left, #000, #333, #000);
+    background: linear-gradient(left, #000, #333, #000);
 
     .container {
-        padding: 2em;
+        padding: 2em 0;
     }
 }
 
 h1 {
-    font-size: 4em;
+    margin: 0 0 .5em 0;
+    font-size: 5em;
     font-weight: 600;
     text-transform: uppercase;
     text-align: center;
+    letter-spacing: 12px;
 }
 
 a {
-    color: #444;
+    color: #eee;
     text-decoration: none;
 }
 
@@ -27,7 +33,12 @@ a {
         text-align: center;
 
         select {
+            color: #555;
             font-size: 1em;
+
+            &:not(:last-child) {
+                margin-right: 10px;
+            }
         }
     }
 }
@@ -39,20 +50,27 @@ a {
         flex-direction: row;
         align-items: flex-start;
 
-        &:nth-child(odd) {
-            background: #f9f9f9;
+        &:nth-child(even) {
+            background: rgba(0, 0, 0, .1);
         }
 
         &.labels {
+            display: none;
             font-weight: 600;
             text-transform: uppercase;
-            background: #f4f4f4;
+            background: rgba(0, 0, 0, .1);
         }
 
         > div {
             box-sizing: border-box;
             padding: 20px;
-            font-size: .9em;
+            font-size: 1.1em;
+        }
+
+        .subtext {
+            color: #aaa;
+            font-size: .6em;
+            margin-top: 3px;
         }
 
         .rank {
@@ -69,13 +87,7 @@ a {
         .dungeon {
             width: 15%;
 
-            .affixes {
-
-                div {
-                    color: #aaa;
-                    font-size: .6em;
-                }
-            }
+            .affixes {}
         }
 
         .time {
@@ -89,76 +101,72 @@ a {
                 }
             }
 
-            .completed {
-                color: #aaa;
-                font-size: .6em;
-            }
+            .completed {}
         }
 
         .party {
             width: 60%;
-            display: flex;
-            flex-direction: row;
 
-            span.region {
-                margin-right: 40px;
-                text-transform: uppercase;
-            }
-
-            span.faction {
-                margin-right: 40px;
-
-                &.alliance { color: blue; }
-                &.horde { color: red; }
-            }
-
-            a {
+            .characters {
                 display: flex;
                 flex-direction: row;
-                align-items: center;
-                margin-right: 20px;
 
-                .role {
-                    position: relative;
-                    top: -1px;
-                    width: 18px;
-                    height: 18px;
-                    margin-right: 5px;
-                    mask-size: 12px 12px;
-                    -webkit-mask-size: 12px 12px;
-                    mask-repeat: no-repeat;
-                    -webkit-mask-repeat: no-repeat;
-                    mask-position: 50% 50%;
-                    -webkit-mask-position: 50% 50%;
+                a {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    margin-right: 30px;
 
-                    &.tank {
-                        mask-image: url('/img/shield.svg');
-                        -webkit-mask-image: url('/img/shield.svg');
+                    .role {
+                        position: relative;
+                        top: -1px;
+                        width: 18px;
+                        height: 18px;
+                        margin-right: 3px;
+                        mask-size: 12px 12px;
+                        -webkit-mask-size: 12px 12px;
+                        mask-repeat: no-repeat;
+                        -webkit-mask-repeat: no-repeat;
+                        mask-position: 50% 50%;
+                        -webkit-mask-position: 50% 50%;
+
+                        &.tank {
+                            mask-image: url('/img/shield.svg');
+                            -webkit-mask-image: url('/img/shield.svg');
+                        }
+
+                        &.healer {
+                            mask-image: url('/img/plus.svg');
+                            -webkit-mask-image: url('/img/plus.svg');
+                        }
+
+                        &.dps {
+                            mask-image: url('/img/bolt.svg');
+                            -webkit-mask-image: url('/img/bolt.svg');
+                        }
+
+                        &.deathknight { background-color: #c41e3b; }
+                        &.demonhunter { background-color: #a330c9; }
+                        &.druid { background-color: #ff7c0a; }
+                        &.hunter { background-color: #aad372; }
+                        &.mage { background-color: #68ccef; }
+                        &.monk { background-color: #00ffba; }
+                        &.paladin { background-color: #f48cba; }
+                        &.priest { background-color: #f0ebe0; }
+                        &.rogue { background-color: #fff468; }
+                        &.shaman { background-color: #2359ff; }
+                        &.warlock { background-color: #a330c9; }
+                        &.warrior { background-color: #c69b6d; }
                     }
-
-                    &.healer {
-                        mask-image: url('/img/plus.svg');
-                        -webkit-mask-image: url('/img/plus.svg');
-                    }
-
-                    &.dps {
-                        mask-image: url('/img/bolt.svg');
-                        -webkit-mask-image: url('/img/bolt.svg');
-                    }
-
-                    &.deathknight { background-color: #c41e3b; }
-                    &.demonhunter { background-color: #a330c9; }
-                    &.druid { background-color: #ff7c0a; }
-                    &.hunter { background-color: #aad372; }
-                    &.mage { background-color: #68ccef; }
-                    &.monk { background-color: #00ffba; }
-                    &.paladin { background-color: #f48cba; }
-                    &.priest { background-color: #f0ebe0; }
-                    &.rogue { background-color: #fff468; }
-                    &.shaman { background-color: #2359ff; }
-                    &.warlock { background-color: #a330c9; }
-                    &.warrior { background-color: #c69b6d; }
                 }
+            }
+
+            .meta {
+                text-transform: capitalize;
+
+                span.region {}
+
+                span.faction {}
             }
         }
     }

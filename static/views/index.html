@@ -12,7 +12,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&amp;subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext,vietnamese" rel="stylesheet">
 
     <link rel="stylesheet" href="/styles/normalize.css">
     <link rel="stylesheet" href="/styles/skeleton.css">
@@ -46,14 +46,25 @@
 
                 <div id="filters">
                     <form name="inputform">
+                        <select ng-model="inputformdata.region">
+                            <option value="all">All Regions</option>
+                            <option ng-repeat="region in regions" value="{{ region.abbr }}">{{ region.name }}</option>
+                        </select>
+
+                        <select ng-model="inputformdata.faction">
+                            <option value="both">Both Factions</option>
+                            <option value="alliance">Alliance</option>
+                            <option value="horde">Horde</option>
+                        </select>
+
+                        <!-- <select ng-model="inputformdata.week">
+                            <option value="current">Current Week</option>
+                            <option value="all">All-time</option>
+                        </select> -->
+
                         <select ng-model="inputformdata.dungeon">
                             <option value="all">All Dungeons</option>
                             <option ng-repeat="dungeon in dungeons" value="{{ dungeon.slug }}">{{ dungeon.name }}</option>
-                        </select>
-
-                        <select ng-model="inputformdata.server">
-                            <option value="all">All Servers</option>
-                            <option ng-repeat="server in servers" value="{{ server.slug }}">{{ server.name }}</option>
                         </select>
 
                         <select ng-model="inputformdata.limit">
@@ -62,11 +73,6 @@
                             <option value="50">50 Results</option>
                             <option value="100">100 Results</option>
                         </select>
-
-                        <!-- <select ng-model="inputformdata.week">
-                            <option value="current">Current Week</option>
-                            <option value="all">All-time</option>
-                        </select> -->
                     </form>
                 </div>
 
@@ -85,35 +91,37 @@
                         <div class="mlevel">{{ run.mlevel }}</div>
                         <div class="dungeon">
                             {{ run.dungeon | dungeonname }}
-                            <div class="affixes">
+                            <div class="affixes subtext">
                                 <div>{{ run.affix1 }}, {{ run.affix2 }}, {{ run.affix3 }}</div>
                             </div>
                         </div>
                         <div class="time">
                             <div class="speed" ng-bind-html="run.time | friendlytime"></div>
-                            <div class="completed">{{ run.completed | date:"MM/dd/yyyy 'at' h:mma" }}</div>
+                            <div class="completed subtext">{{ run.completed | date:"MM/dd/yyyy 'at' h:mma" }}</div>
                         </div>
                         <div class="party">
-                            <span class="region">{{ run.region }}</span>
+                            <div class="characters">
+                                <a href="{{ run.tankarmorylink }}" ng-if="run.tankname != ''">
+                                    <div class="role tank {{ run.tankclass }}"></div> <div class="name">{{ run.tankname }}</div>
+                                </a>
+                                <a href="{{ run.healerarmorylink }}" ng-if="run.healername != ''">
+                                    <div class="role healer {{ run.healerclass }}"></div> <div class="name">{{ run.healername }}</div>
+                                </a>
+                                <a href="{{ run.dps1armorylink }}" ng-if="run.dps1name != ''">
+                                    <div class="role dps {{ run.dps1class }}"></div> <div class="name">{{ run.dps1name }}</div>
+                                </a>
+                                <a href="{{ run.dps2armorylink }}" ng-if="run.dps2name != ''">
+                                    <div class="role dps {{ run.dps2class }}"></div> <div class="name">{{ run.dps2name }}</div>
+                                </a>
+                                <a href="{{ run.dps3armorylink }}" ng-if="run.dps3name != ''">
+                                    <div class="role dps {{ run.dps3class }}"></div> <div class="name">{{ run.dps3name }}</div>
+                                </a>
+                            </div>
 
-                            <span class="faction {{ run.faction }}" ng-if="run.faction == 'alliance'">A</span>
-                            <span class="faction {{ run.faction }}" ng-if="run.faction == 'horde'">H</span>
-
-                            <a href="{{ run.tankarmorylink }}" ng-if="run.tankname != ''">
-                                <div class="role tank {{ run.tankclass }}"></div> <div class="name">{{ run.tankname }}</div>
-                            </a>
-                            <a href="{{ run.healerarmorylink }}" ng-if="run.healername != ''">
-                                <div class="role healer {{ run.healerclass }}"></div> <div class="name">{{ run.healername }}</div>
-                            </a>
-                            <a href="{{ run.dps1armorylink }}" ng-if="run.dps1name != ''">
-                                <div class="role dps {{ run.dps1class }}"></div> <div class="name">{{ run.dps1name }}</div>
-                            </a>
-                            <a href="{{ run.dps2armorylink }}" ng-if="run.dps2name != ''">
-                                <div class="role dps {{ run.dps2class }}"></div> <div class="name">{{ run.dps2name }}</div>
-                            </a>
-                            <a href="{{ run.dps3armorylink }}" ng-if="run.dps3name != ''">
-                                <div class="role dps {{ run.dps3class }}"></div> <div class="name">{{ run.dps3name }}</div>
-                            </a>
+                            <div class="meta subtext">
+                                <span class="region">{{ run.region | regionname }}, </span>
+                                <span class="faction">{{ run.faction }}</span>
+                            </div>
                         </div>
                     </div>
 

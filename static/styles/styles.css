@@ -1,45 +1,61 @@
 body {
-  color: #444;
-  font-family: 'Poppins', monospace;
+  color: #eee;
+  font-family: 'Roboto', monospace;
   font-weight: 400;
   letter-spacing: .2px;
+  background: #333;
+  background: -webkit-linear-gradient(left, #000, #333, #000);
+  background: -moz-linear-gradient(left, #000, #333, #000);
+  background: linear-gradient(left, #000, #333, #000);
 }
 body .container {
-  padding: 2em;
+  padding: 2em 0;
 }
 h1 {
-  font-size: 4em;
+  margin: 0 0 .5em 0;
+  font-size: 5em;
   font-weight: 600;
   text-transform: uppercase;
   text-align: center;
+  letter-spacing: 12px;
 }
 a {
-  color: #444;
+  color: #eee;
   text-decoration: none;
 }
 #filters form {
   text-align: center;
 }
 #filters form select {
+  color: #555;
   font-size: 1em;
+}
+#filters form select:not(:last-child) {
+  margin-right: 10px;
 }
 #results .entry {
   display: flex;
   flex-direction: row;
   align-items: flex-start;
 }
-#results .entry:nth-child(odd) {
-  background: #f9f9f9;
+#results .entry:nth-child(even) {
+  background: rgba(0, 0, 0, 0.1);
 }
 #results .entry.labels {
+  display: none;
   font-weight: 600;
   text-transform: uppercase;
-  background: #f4f4f4;
+  background: rgba(0, 0, 0, 0.1);
 }
 #results .entry > div {
   box-sizing: border-box;
   padding: 20px;
-  font-size: .9em;
+  font-size: 1.1em;
+}
+#results .entry .subtext {
+  color: #aaa;
+  font-size: .6em;
+  margin-top: 3px;
 }
 #results .entry .rank {
   width: 5%;
@@ -53,10 +69,6 @@ a {
 #results .entry .dungeon {
   width: 15%;
 }
-#results .entry .dungeon .affixes div {
-  color: #aaa;
-  font-size: .6em;
-}
 #results .entry .time {
   width: 15%;
   text-align: right;
@@ -64,40 +76,25 @@ a {
 #results .entry .time .speed span {
   font-size: .8em;
 }
-#results .entry .time .completed {
-  color: #aaa;
-  font-size: .6em;
-}
 #results .entry .party {
   width: 60%;
+}
+#results .entry .party .characters {
   display: flex;
   flex-direction: row;
 }
-#results .entry .party span.region {
-  margin-right: 40px;
-  text-transform: uppercase;
-}
-#results .entry .party span.faction {
-  margin-right: 40px;
-}
-#results .entry .party span.faction.alliance {
-  color: blue;
-}
-#results .entry .party span.faction.horde {
-  color: red;
-}
-#results .entry .party a {
+#results .entry .party .characters a {
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin-right: 20px;
+  margin-right: 30px;
 }
-#results .entry .party a .role {
+#results .entry .party .characters a .role {
   position: relative;
   top: -1px;
   width: 18px;
   height: 18px;
-  margin-right: 5px;
+  margin-right: 3px;
   mask-size: 12px 12px;
   -webkit-mask-size: 12px 12px;
   mask-repeat: no-repeat;
@@ -105,51 +102,54 @@ a {
   mask-position: 50% 50%;
   -webkit-mask-position: 50% 50%;
 }
-#results .entry .party a .role.tank {
+#results .entry .party .characters a .role.tank {
   mask-image: url('/img/shield.svg');
   -webkit-mask-image: url('/img/shield.svg');
 }
-#results .entry .party a .role.healer {
+#results .entry .party .characters a .role.healer {
   mask-image: url('/img/plus.svg');
   -webkit-mask-image: url('/img/plus.svg');
 }
-#results .entry .party a .role.dps {
+#results .entry .party .characters a .role.dps {
   mask-image: url('/img/bolt.svg');
   -webkit-mask-image: url('/img/bolt.svg');
 }
-#results .entry .party a .role.deathknight {
+#results .entry .party .characters a .role.deathknight {
   background-color: #c41e3b;
 }
-#results .entry .party a .role.demonhunter {
+#results .entry .party .characters a .role.demonhunter {
   background-color: #a330c9;
 }
-#results .entry .party a .role.druid {
+#results .entry .party .characters a .role.druid {
   background-color: #ff7c0a;
 }
-#results .entry .party a .role.hunter {
+#results .entry .party .characters a .role.hunter {
   background-color: #aad372;
 }
-#results .entry .party a .role.mage {
+#results .entry .party .characters a .role.mage {
   background-color: #68ccef;
 }
-#results .entry .party a .role.monk {
+#results .entry .party .characters a .role.monk {
   background-color: #00ffba;
 }
-#results .entry .party a .role.paladin {
+#results .entry .party .characters a .role.paladin {
   background-color: #f48cba;
 }
-#results .entry .party a .role.priest {
+#results .entry .party .characters a .role.priest {
   background-color: #f0ebe0;
 }
-#results .entry .party a .role.rogue {
+#results .entry .party .characters a .role.rogue {
   background-color: #fff468;
 }
-#results .entry .party a .role.shaman {
+#results .entry .party .characters a .role.shaman {
   background-color: #2359ff;
 }
-#results .entry .party a .role.warlock {
+#results .entry .party .characters a .role.warlock {
   background-color: #a330c9;
 }
-#results .entry .party a .role.warrior {
+#results .entry .party .characters a .role.warrior {
   background-color: #c69b6d;
+}
+#results .entry .party .meta {
+  text-transform: capitalize;
 }

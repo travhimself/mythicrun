@@ -7,10 +7,7 @@ var s = {
         root: __dirname + '/static/views/',
         dotfiles: 'ignore'
     },
-    scrapeinterval: 14400000,
-    scrapegraceperiod: 5000,
-    baseurlna: 'https://worldofwarcraft.com/en-us/game/pve/leaderboards/',
-    baseurleu: 'https://worldofwarcraft.com/en-gb/game/pve/leaderboards/'
+    scrapeinterval: 43200000 // 12 hours
 };
 
 
@@ -78,17 +75,41 @@ var nodeserver = expressapp.listen(s.nodeport, function() {
     // build array of server/dungeon combination pages to scrape
     var combinations = [];
 
-    for (var x = 0, xlen = data.servers.length; x < xlen; x++ ) {
+    for (var x = 0, xlen = data.dungeons.length; x < xlen; x++ ) {
 
-        for (var z = 0, zlen = data.dungeons.length; z < zlen; z++ ) {
-            var currentserver = data.servers[x].slug;
-            var currentdungeon = data.dungeons[z].slug;
+        for (var y = 0, ylen = data.servers.length; y < ylen; y++ ) {
 
-            var urlna = s.baseurlna + currentserver + '/' + currentdungeon;
-            combinations.push([urlna, 'na', currentdungeon]);
+            for (var z = 0, zlen = data.servers[y].regions.length; z < zlen; z++ ) {
 
-            var urleu = s.baseurleu + currentserver + '/' + currentdungeon;
-            combinations.push([urleu, 'eu', currentdungeon]);
+                var currentdungeon = data.dungeons[x].slug;
+                var currentserver = data.servers[y].slug;
+                var currentregion = data.servers[y].regions[z];
+
+                var currentregionslug = '';
+                switch(currentregion) {
+                    case 'AM':
+                        currentregionslug = 'en-us';
+                        break;
+                    case 'EU':
+                        currentregionslug = 'en-gb';
+                        break;
+                    case 'KO':
+                        currentregionslug = 'ko-kr';
+                        break;
+                    case 'TW':
+                        currentregionslug = 'zh-tw';
+                        break;
+                    default:
+                        currentregionslug = '';
+                }
+
+                var url = 'https://worldofwarcraft.com/' + currentregionslug + '/game/pve/leaderboards/' + currentserver + '/' + currentdungeon;
+
+                var entry = [url, currentregion, currentdungeon]
+
+                // console.log(entry);
+                combinations.push(entry);
+            }
         }
     }
 
@@ -216,13 +237,13 @@ var nodeserver = expressapp.listen(s.nodeport, function() {
 
 
     // uncomment if we want to run a scrape immediately when server starts
-    scrapepages();
+    // scrapepages();
 
 
     // scrape every x ms
     setInterval( function () {
         // uncomment for production
-        scrapepages();
+        // scrapepages();
     }, s.scrapeinterval);
 
 
@@ -266,17 +287,21 @@ expressapp.use(express.static('static'));
 
 
 // routes
-expressapp.get('/run/:dungeon/:server/:limit', function (req, res) {
+expressapp.get('/run/:region/:dungeon/:faction/:limit', function (req, res) {
 
     var resultslimit = parseInt(req.params.limit);
     var findobject = {};
+
+    if ( req.params.region != 'all' ) {
+        findobject.region = req.params.region;
+    }
 
     if ( req.params.dungeon != 'all' ) {
         findobject.dungeon = req.params.dungeon;
     }
 
-    if ( req.params.server != 'all' ) {
-        findobject.server = req.params.server;
+    if ( req.params.faction != 'both' ) {
+        findobject.faction = req.params.faction;
     }
 
     run.find(findobject, function (err, runs) {
