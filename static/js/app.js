@@ -32,6 +32,8 @@ angular.module('mythicrunapp', []).controller('mythicruncontroller', ['$scope', 
 
     $scope.$watch("inputformdata", function(){
 
+        $scope.runs = null;
+
         $http.get('/run/' + $scope.inputformdata.region + '/' + $scope.inputformdata.dungeon + '/' + $scope.inputformdata.faction + '/' + $scope.inputformdata.limit).
             success( function (data, status, headers, config) {
                 $scope.runs = data;

@@ -46,28 +46,28 @@
 
                 <div id="filters">
                     <form name="inputform">
-                        <select ng-model="inputformdata.region">
+                        <select ng-model="inputformdata.region" ng-disabled="!runs">
                             <option value="all">All Regions</option>
                             <option ng-repeat="region in regions" value="{{ region.abbr }}">{{ region.name }}</option>
                         </select>
 
-                        <select ng-model="inputformdata.faction">
+                        <select ng-model="inputformdata.faction" ng-disabled="!runs">
                             <option value="both">Both Factions</option>
                             <option value="alliance">Alliance</option>
                             <option value="horde">Horde</option>
                         </select>
 
-                        <!-- <select ng-model="inputformdata.week">
+                        <!-- <select ng-model="inputformdata.week" ng-disabled="!runs">
                             <option value="current">Current Week</option>
                             <option value="all">All-time</option>
                         </select> -->
 
-                        <select ng-model="inputformdata.dungeon">
+                        <select ng-model="inputformdata.dungeon" ng-disabled="!runs">
                             <option value="all">All Dungeons</option>
                             <option ng-repeat="dungeon in dungeons" value="{{ dungeon.slug }}">{{ dungeon.name }}</option>
                         </select>
 
-                        <select ng-model="inputformdata.limit">
+                        <select ng-model="inputformdata.limit" ng-disabled="!runs">
                             <option value="10">10 Results</option>
                             <option value="25">25 Results</option>
                             <option value="50">50 Results</option>
@@ -78,9 +78,11 @@
 
                 <div id="results">
 
-                    <div class="none" ng-if="runs.length == 0">
+                    <div class="noresults" ng-if="runs.length == 0">
                         No results
                     </div>
+
+                    <div class="loading" ng-if="!runs">loading</div>
 
                     <div class="entry labels">
                         <div class="rank"></div>

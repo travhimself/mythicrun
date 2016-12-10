@@ -9,6 +9,7 @@ wow mythic dungeon leaderboards
 [Angular](https://angularjs.org/)
 [Less](http://lesscss.org/)
 [Iconic Icon Set](https://useiconic.com/open)
+[CSS Loaders](https://projects.lukehaas.me/css-loaders/)
 
 
 ## info
