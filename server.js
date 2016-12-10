@@ -237,13 +237,13 @@ var nodeserver = expressapp.listen(s.nodeport, function() {
 
 
     // uncomment if we want to run a scrape immediately when server starts
-    // scrapepages();
+    scrapepages();
 
 
     // scrape every x ms
     setInterval( function () {
         // uncomment for production
-        // scrapepages();
+        scrapepages();
     }, s.scrapeinterval);
 
 
