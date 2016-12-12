@@ -92,7 +92,7 @@
                         <div class="party">Party</div>
                     </div>
 
-                    <div class="entry" ng-repeat="run in runs">
+                    <div class="entry" ng-repeat="run in runs" data-id="{{ run._id }}">
                         <div class="rank">{{ $index + 1 }}</div>
                         <div class="mlevel">{{ run.mlevel }}</div>
                         <div class="dungeon">

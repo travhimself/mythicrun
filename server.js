@@ -7,7 +7,7 @@ var s = {
         root: __dirname + '/static/views/',
         dotfiles: 'ignore'
     },
-    scrapeinterval: 43200000 // 12 hours
+    scrapeinterval: 86400000 // 24 hours
 };
 
 
@@ -118,7 +118,7 @@ var nodeserver = expressapp.listen(s.nodeport, function() {
     // looper() courtesy of: https://gist.github.com/coryshaw/80fc7d49091ff88bb56e903a1746a999
     var scrapepages = function () {
 
-        console.log('beginning page scraping...');
+        console.log('beginning to scrape ' + combinations.length + ' pages...');
 
         var looper = function (item) {
 
@@ -211,7 +211,15 @@ var nodeserver = expressapp.listen(s.nodeport, function() {
                                 dps3armorylink: dps3armorylinkstring
                             });
 
-                            checkandsave(newrun);
+                            var testforuniqueness = {
+                                'tankname': newrun.tankname,
+                                'completed': newrun.completed,
+                                'time': newrun.time
+                            };
+
+                            run.findOneAndUpdate( testforuniqueness, newrun, {upsert: true}, function(err, run) {
+                                // console.log("succesfully updated");
+                            });
 
                         });
 
@@ -240,36 +248,11 @@ var nodeserver = expressapp.listen(s.nodeport, function() {
     scrapepages();
 
 
-    // scrape every x ms
+    // scrape every x ms (based on settings)
     setInterval( function () {
         // uncomment for production
         scrapepages();
     }, s.scrapeinterval);
-
-
-    // check an entry against existing db docs, and save if it's new
-    var checkandsave = function(newrun) {
-
-        run.find({
-            mlevel: newrun.mlevel,
-            dungeon: newrun.dungeon,
-            time: newrun.time,
-            completed: newrun.completed,
-            tankname: newrun.tankname
-        }, function (err, runs) {
-            if ( runs.length > 0 ) {
-                // console.log('found existing entry, skipping...')
-            } else {
-                newrun.save(function (err) {
-                    if (err) {
-                        console.log('error saving run: ' + err);
-                    } else {
-                        // console.log('run saved');
-                    }
-                });
-            }
-        });
-    };
 
 
     // function to grab character class from css class
